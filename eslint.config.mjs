@@ -10,9 +10,6 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   eslintPluginPrettierRecommended,
-  {
-    ignores: ['.node_modules/*', '.dist/*'],
-  },
 
   {
     rules: {
@@ -22,5 +19,8 @@ export default [
       'no-console': 'warn',
       'no-undef': 'error',
     },
+  },
+  {
+    ignores: ['.node_modules/*'],
   },
 ];

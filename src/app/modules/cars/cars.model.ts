@@ -2,6 +2,12 @@ import { model, Schema } from 'mongoose';
 import { TCar } from './cars.interface';
 
 const CarSchema = new Schema<TCar>({
+  id: {
+    type: String,
+    required: [true, 'id is required'],
+    unique: [true, 'id mast be unique'],
+    trim: true,
+  },
   brand: {
     type: String,
     required: [true, 'Brand name is required'],
