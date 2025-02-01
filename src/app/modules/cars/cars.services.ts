@@ -6,6 +6,22 @@ const SaveCarIntoDB = async (carData: TCar) => {
   return result;
 };
 
+const getAllCarsFromDB = async (searchTerm: string) => {
+  const result = await CarModel.aggregate([
+    {
+      $match: {
+        $or: [
+          { category: { $regex: new RegExp(searchTerm, 'i') } },
+          { brand: { $regex: new RegExp(searchTerm, 'i') } },
+          { model: { $regex: new RegExp(searchTerm, 'i') } },
+        ],
+      },
+    },
+  ]);
+  return result;
+};
+
 export const carsServices = {
   SaveCarIntoDB,
+  getAllCarsFromDB,
 };

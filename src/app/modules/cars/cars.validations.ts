@@ -1,7 +1,6 @@
 import { z } from 'zod';
 
 export const carValidationSchema = z.object({
-  id: z.string(),
   brand: z.string().min(1, { message: 'Brand name is required' }).trim(),
   model: z.string().min(1, { message: 'Model name is required' }).trim(),
   year: z

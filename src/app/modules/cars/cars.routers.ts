@@ -3,6 +3,7 @@ import { carControllers } from './cars.controllers';
 
 const router = express.Router();
 
+router.get('/', carControllers.gelAllCars);
 router.post('/save-car', carControllers.SaveCar);
 
 router.get('/', (req, res) => {
