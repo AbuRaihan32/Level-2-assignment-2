@@ -1,9 +1,6 @@
-import { TCar } from '../cars/cars.interface';
-
 export type TOrder = {
-  id: string;
   email: string;
-  car: TCar;
+  carId: string;
   quantity: number;
   totalPrice: number;
 };
