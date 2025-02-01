@@ -19,4 +19,5 @@ export const carValidationSchema = z.object({
     .min(10, { message: 'Description must be at least 10 characters long' }),
   quantity: z.number().min(0, { message: 'Quantity cannot be negative' }),
   inStock: z.boolean({ required_error: 'Stock status is required' }),
+  isDeleted: z.boolean().default(false),
 });

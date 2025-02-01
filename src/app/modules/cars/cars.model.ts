@@ -46,8 +46,23 @@ const CarSchema = new Schema<TCar>(
       type: Boolean,
       required: [true, 'Stock status is required'],
     },
+    isDeleted: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true },
 );
+
+// ! pre query middlewares
+CarSchema.pre('aggregate', async function (next) {
+  this.pipeline().unshift({ $match: { isDeleted: { $ne: true } } });
+  next();
+});
+
+CarSchema.pre('findOne', async function (next) {
+  this.findOne({ isDeleted: { $ne: true } });
+  next();
+});
 
 export const CarModel = model<TCar>('car', CarSchema);
