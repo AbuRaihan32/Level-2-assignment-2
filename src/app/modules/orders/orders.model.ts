@@ -8,7 +8,7 @@ const OrderSchema = new Schema<TOrder>(
       required: true,
       trim: true,
     },
-    carId: {
+    carID: {
       type: String,
       required: true,
     },
@@ -19,8 +19,6 @@ const OrderSchema = new Schema<TOrder>(
     },
     totalPrice: {
       type: Number,
-      required: true,
-      min: 0,
     },
   },
   {

@@ -1,6 +1,6 @@
 export type TOrder = {
   email: string;
-  carId: string;
+  carID: string;
   quantity: number;
   totalPrice: number;
 };
